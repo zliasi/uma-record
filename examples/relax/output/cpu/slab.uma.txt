@@ -1,0 +1,157 @@
+UMA calculation record (uma-record v0.1.0)
+
+Run
+  command:                   run.py --device cpu --checkpoint /groups/kemi/liasi/share/cheac/checkpoints/uma/uma-s-1p2p1.pt
+  script:                    /lustre/hpc/kemi/liasi/projects/uma-record/examples/relax/run.py
+  script sha256:             ff411125480609663747b33490e2a443139d145c84bacf342635ab82e9073503
+  user:                      liasi
+  node:                      node024.cluster
+  os:                        Linux-5.14.0-687.17.1.el9_8.x86_64-x86_64-with-glibc2.34
+  working directory:         /lustre/hpc/kemi/liasi/projects/uma-record/examples/relax
+  job id:                    65910686
+  job name:                  uma-record-relax-cpu
+  partition:                 katla_short
+  cpus:                      1
+  memory / MB:               8589.9
+  process started:           2026-10-08T15:57:53+02:00
+  written:                   2026-10-08T15:59:05+02:00
+  process elapsed:           0 days 0 hours 1 minutes 12.0 seconds
+  peak process memory / MB:  5541.2
+
+Calculator
+  calculator:               FAIRChemCalculator
+  predict_unit:             MLIPPredictUnit
+  task_name:                oc20
+  implemented_properties:   energy, forces, stress, free_energy
+  model_id:                 UMA-S-1.2.1
+  direct_forces:            False
+  checkpoint:               /groups/kemi/liasi/share/cheac/checkpoints/uma/uma-s-1p2p1.pt
+  checkpoint md5:           3497615fd30a24c5b35cd3b41a682e6e
+  checkpoint sha256:        b2673b85037b075674c25f55c34ffe1ff1e15db924be977b10a184765df0d5ce
+  checkpoint size / bytes:  2333393615
+  checkpoint modified:      2026-08-18T11:06:24+02:00
+  device:                   cpu
+  torch threads:            1
+  seed:                     41
+  overrides:                none
+
+Inference settings, effective when written
+  tf32:                              False
+  activation_checkpointing:          False
+  merge_mole:                        True
+  compile:                           True
+  wigner_cuda:                       none
+  external_graph_gen:                False
+  internal_graph_gen_version:        2
+  torch_num_threads:                 none
+  edge_chunk_size:                   none
+  use_quaternion_wigner:             True
+  base_precision_dtype:              torch.float32
+  execution_mode:                    none
+  predict_untrained_forces:          []
+  predict_untrained_stress:          []
+  predict_untrained_hessian:         []
+  hessian_vmap:                      True
+  auto_add_default_untrained_tasks:  True
+  max_atoms:                         none
+
+Dynamics
+  type:        optimization
+  optimizer:   LBFGS
+  restart:     none
+  maxstep:     0.2
+  max_steps:   100
+  fmax:        0.05
+  nsteps:      2
+  converged:   True
+  trajectory:  none
+  logfile:     none
+
+Atoms
+  formula:                            Cu12
+  natoms:                             12
+  pbc:                                T T T
+  cell a / Ang:                       5.105311  0.000000  0.000000
+  cell b / Ang:                       2.552655  4.421329  0.000000
+  cell c / Ang:                       0.000000  0.000000  24.168469
+  cell parameters / Ang, deg:         5.105311  5.105311  24.168469  90.000000  90.000000  60.000000
+  cell volume / Ang**3:               545.536949
+  max gap along a b c / Ang:          0.736888  0.736888  19.970519
+  vacuum below, above along c / Ang:  10.000000  9.970519
+  constraints:                        FixAtoms on 8 atoms (indices 0-7)
+
+Results
+  source:                                  last calculation
+  energy / eV:                            -35.981885
+  free_energy / eV:                       -35.981885
+  fmax / (eV/Ang):                         0.010070
+  stress xx yy zz yz xz xy / (eV/Ang**3): -0.001585 -0.001585 -0.001959  0.000000 -0.000000  0.000000
+
+References
+  software:       fairchem
+  model:          wood2025uma
+  training data:  chanussot2021oc20
+
+@software{fairchem,
+  title = {{FAIRChem}},
+  author = {{FAIR Chemistry}},
+  doi = {10.5281/zenodo.15587497},
+  url = {https://github.com/facebookresearch/fairchem},
+}
+
+@inproceedings{wood2025uma,
+  title = {{UMA}: A Family of Universal Models for Atoms},
+  author = {Brandon M. Wood and Misko Dzamba and Xiang Fu and Meng Gao and Muhammed Shuaibi and Luis Barroso-Luque and Kareem Abdelmaqsoud and Vahe Gharakhanyan and John R. Kitchin and Daniel S. Levine and Kyle Michel and Anuroop Sriram and Taco Cohen and Abhishek Das and Sushree Jagriti Sahoo and Ammar Rizvi and Zachary W. Ulissi and C. Lawrence Zitnick},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume = {38},
+  pages = {143528--143564},
+  year = {2025},
+  doi = {10.52202/085713-4310},
+  eprint = {2506.23971},
+  archivePrefix = {arXiv},
+}
+
+@article{chanussot2021oc20,
+  title = {Open Catalyst 2020 ({OC20}) Dataset and Community Challenges},
+  author = {Lowik Chanussot and Abhishek Das and Siddharth Goyal and Thibaut Lavril and Muhammed Shuaibi and Morgane Riviere and Kevin Tran and Javier Heras-Domingo and Caleb Ho and Weihua Hu and Aini Palizhati and Anuroop Sriram and Brandon Wood and Junwoong Yoon and Devi Parikh and C. Lawrence Zitnick and Zachary Ulissi},
+  journal = {ACS Catalysis},
+  volume = {11},
+  number = {10},
+  pages = {6059--6072},
+  year = {2021},
+  doi = {10.1021/acscatal.0c04525},
+  eprint = {2010.09990},
+  archivePrefix = {arXiv},
+}
+
+Environment
+  type:     conda
+  version:  26.1.1
+  name:     cheac
+  path:     /groups/kemi/liasi/software/build/miniconda3/envs/cheac
+
+Dependencies
+  python:         3.13.15
+  fairchem.core:  2.22.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/fairchem/core
+  torch:          2.13.0+cu130, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/torch
+  ase:            3.29.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/ase
+  numpy:          2.4.6, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/numpy
+  scipy:          1.18.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/scipy
+  cuda:           13.0
+  cudnn:          9.20.0
+
+Structure, extended xyz
+12
+Lattice="5.105310960166873 0.0 0.0 2.5526554800834367 4.421328985723636 0.0 0.0 0.0 24.168468943549097" Properties=species:S:1:pos:R:3:move_mask:L:1:tags:I:1:forces:R:3 charge=0 spin=0 energy=-35.98188534717421 free_energy=-35.98188534717421 stress="-0.0015848159483125767 8.460464787347304e-10 -2.329321307088198e-09 8.460464787347304e-10 -0.0015848130238792584 5.209920782781682e-09 -2.329321307088198e-09 5.209920782781682e-09 -0.0019590842726358564" pbc="T T T"
+Cu       1.27632774       0.73688816      10.00000000  F        3       0.00000088       0.00000001      -0.11798275
+Cu       3.82898322       0.73688816      10.00000000  F        3      -0.00000137       0.00000022      -0.11798257
+Cu       2.55265548       2.94755266      10.00000000  F        3      -0.00000002       0.00000045      -0.11798184
+Cu       5.10531096       2.94755266      10.00000000  F        3      -0.00000002       0.00000023      -0.11798309
+Cu      -0.00000000       1.47377633      12.08423447  F        2      -0.00000013       0.00000032       0.10791361
+Cu       2.55265548       1.47377633      12.08423447  F        2       0.00000019      -0.00000081       0.10791197
+Cu       1.27632774       3.68444082      12.08423447  F        2       0.00000134       0.00000012       0.10791308
+Cu       3.82898322       3.68444082      12.08423447  F        2      -0.00000110      -0.00000003       0.10791279
+Cu       0.00000004       0.00000002      14.19794992  T        1      -0.00000013       0.00000131       0.01006935
+Cu       2.55265546       0.00000011      14.19795010  T        1       0.00000011      -0.00000168       0.01006973
+Cu       1.27632806       2.21066460      14.19795003  T        1      -0.00000341      -0.00000004       0.01006989
+Cu       3.82898291       2.21066454      14.19795001  T        1       0.00000358      -0.00000009       0.01006993

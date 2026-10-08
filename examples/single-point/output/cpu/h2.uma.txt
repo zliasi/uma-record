@@ -1,0 +1,133 @@
+UMA calculation record (uma-record v0.1.0)
+
+Run
+  command:                   run.py --device cpu --checkpoint /groups/kemi/liasi/share/cheac/checkpoints/uma/uma-s-1p2p1.pt
+  script:                    /lustre/hpc/kemi/liasi/projects/uma-record/examples/single-point/run.py
+  script sha256:             a7b122b89f2043a26f33606e81e713a4a376039f749eda7471489918112c9793
+  user:                      liasi
+  node:                      node024.cluster
+  os:                        Linux-5.14.0-687.17.1.el9_8.x86_64-x86_64-with-glibc2.34
+  working directory:         /lustre/hpc/kemi/liasi/projects/uma-record/examples/single-point
+  job id:                    65910684
+  job name:                  uma-record-single-point-cpu
+  partition:                 katla_short
+  cpus:                      1
+  memory / MB:               8589.9
+  process started:           2026-10-08T15:57:49+02:00
+  written:                   2026-10-08T15:59:08+02:00
+  process elapsed:           0 days 0 hours 1 minutes 18.9 seconds
+  peak process memory / MB:  5645.2
+
+Calculator
+  calculator:               FAIRChemCalculator
+  predict_unit:             MLIPPredictUnit
+  task_name:                oc20
+  implemented_properties:   energy, forces, stress, free_energy
+  model_id:                 UMA-S-1.2.1
+  direct_forces:            False
+  checkpoint:               /groups/kemi/liasi/share/cheac/checkpoints/uma/uma-s-1p2p1.pt
+  checkpoint md5:           3497615fd30a24c5b35cd3b41a682e6e
+  checkpoint sha256:        b2673b85037b075674c25f55c34ffe1ff1e15db924be977b10a184765df0d5ce
+  checkpoint size / bytes:  2333393615
+  checkpoint modified:      2026-08-18T11:06:24+02:00
+  device:                   cpu
+  torch threads:            1
+  seed:                     41
+  overrides:                none
+
+Inference settings, effective when written
+  tf32:                              False
+  activation_checkpointing:          False
+  merge_mole:                        False
+  compile:                           False
+  wigner_cuda:                       none
+  external_graph_gen:                False
+  internal_graph_gen_version:        2
+  torch_num_threads:                 none
+  edge_chunk_size:                   none
+  use_quaternion_wigner:             True
+  base_precision_dtype:              torch.float32
+  execution_mode:                    none
+  predict_untrained_forces:          []
+  predict_untrained_stress:          []
+  predict_untrained_hessian:         []
+  hessian_vmap:                      True
+  auto_add_default_untrained_tasks:  True
+  max_atoms:                         none
+
+Atoms
+  formula:                     H2
+  natoms:                      2
+  pbc:                         F F F
+  cell a / Ang:                10.000000  0.000000  0.000000
+  cell b / Ang:                0.000000  10.000000  0.000000
+  cell c / Ang:                0.000000  0.000000  10.737166
+  cell parameters / Ang, deg:  10.000000  10.000000  10.737166  90.000000  90.000000  90.000000
+  cell volume / Ang**3:        1073.716600
+  max gap along a b c / Ang:   10.000000  10.000000  10.000000
+  constraints:                 none
+
+Results
+  source:            last calculation
+  energy / eV:      -6.955058
+  free_energy / eV: -6.955058
+  fmax / (eV/Ang):   0.389486
+
+References
+  software:       fairchem
+  model:          wood2025uma
+  training data:  chanussot2021oc20
+
+@software{fairchem,
+  title = {{FAIRChem}},
+  author = {{FAIR Chemistry}},
+  doi = {10.5281/zenodo.15587497},
+  url = {https://github.com/facebookresearch/fairchem},
+}
+
+@inproceedings{wood2025uma,
+  title = {{UMA}: A Family of Universal Models for Atoms},
+  author = {Brandon M. Wood and Misko Dzamba and Xiang Fu and Meng Gao and Muhammed Shuaibi and Luis Barroso-Luque and Kareem Abdelmaqsoud and Vahe Gharakhanyan and John R. Kitchin and Daniel S. Levine and Kyle Michel and Anuroop Sriram and Taco Cohen and Abhishek Das and Sushree Jagriti Sahoo and Ammar Rizvi and Zachary W. Ulissi and C. Lawrence Zitnick},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume = {38},
+  pages = {143528--143564},
+  year = {2025},
+  doi = {10.52202/085713-4310},
+  eprint = {2506.23971},
+  archivePrefix = {arXiv},
+}
+
+@article{chanussot2021oc20,
+  title = {Open Catalyst 2020 ({OC20}) Dataset and Community Challenges},
+  author = {Lowik Chanussot and Abhishek Das and Siddharth Goyal and Thibaut Lavril and Muhammed Shuaibi and Morgane Riviere and Kevin Tran and Javier Heras-Domingo and Caleb Ho and Weihua Hu and Aini Palizhati and Anuroop Sriram and Brandon Wood and Junwoong Yoon and Devi Parikh and C. Lawrence Zitnick and Zachary Ulissi},
+  journal = {ACS Catalysis},
+  volume = {11},
+  number = {10},
+  pages = {6059--6072},
+  year = {2021},
+  doi = {10.1021/acscatal.0c04525},
+  eprint = {2010.09990},
+  archivePrefix = {arXiv},
+}
+
+Environment
+  type:     conda
+  version:  26.1.1
+  name:     cheac
+  path:     /groups/kemi/liasi/software/build/miniconda3/envs/cheac
+
+Dependencies
+  python:         3.13.15
+  fairchem.core:  2.22.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/fairchem/core
+  torch:          2.13.0+cu130, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/torch
+  ase:            3.29.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/ase
+  numpy:          2.4.6, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/numpy
+  scipy:          1.18.0, /groups/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/scipy
+  cuda:           13.0
+  cudnn:          9.20.0
+
+Structure, extended xyz
+2
+Lattice="10.0 0.0 0.0 0.0 10.0 0.0 0.0 0.0 10.737166" Properties=species:S:1:pos:R:3:forces:R:3 charge=0 spin=0 energy=-6.9550583971218165 free_energy=-6.9550583971218165 stress="0.0 0.0 2.4692751211354047e-12 0.0 0.0 0.0 2.4692751211354047e-12 0.0 -0.0002674037201648639" pbc="F F F"
+H        5.00000000       5.00000000       5.73716600      -0.00000001       0.00000000       0.38948610
+H        5.00000000       5.00000000       5.00000000       0.00000001       0.00000000      -0.38948610

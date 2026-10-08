@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uma-record"
+version = "0.1.0"
+description = "Human readable record files for UMA calculations"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Zacharias Liasi" }]
+# lower bounds only, a UMA environment already satisfies all of them, so pip
+# changes nothing there. ase 3.23 added external io formats, fairchem-core 2
+# the FAIRChemCalculator
+dependencies = ["fairchem-core>=2", "ase>=3.23", "numpy", "torch"]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "mypy"]
+
+[project.urls]
+Repository = "https://github.com/zliasi/uma-record"
+
+# ASE loads external file formats from this group, so `ase.io.read` and
+# `ase gui` open a record by its first line. The target module must not import
+# ase.io, see uma_record_ase.py
+[project.entry-points."ase.ioformats"]
+uma-record = "uma_record_ase:ASE_IO_FORMAT"
+
+# two top level modules rather than a package. ASE imports the format module
+# while ase.io loads, so it cannot sit in a package whose __init__ imports
+# ase.io and fairchem, which uma_record does
+[tool.setuptools]
+py-modules = ["uma_record", "uma_record_ase"]
+
+[tool.black]
+line-length = 88
+
+[tool.mypy]
+strict = true
+# ase ships type information but leaves most functions unannotated
+untyped_calls_exclude = ["ase"]
+
+[[tool.mypy.overrides]]
+module = ["fairchem.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.pytest_cache/
+# records written to the checkout by mistake, the examples keep theirs
+/*.uma.txt
+# checksum listings written beside checkpoints
+*.md5
+*.sha256
