@@ -1158,7 +1158,9 @@ def _source_commit(distribution_name: str) -> str | None:
 def _package_rows() -> tuple[_Row, ...]:
     packages = set()
     for distribution in metadata.distributions():
-        name = distribution.metadata.get("Name")
+        # indexed rather than .get, the 3.11 type stubs lack .get and a
+        # missing header indexes to None anyway
+        name = distribution.metadata["Name"]
         if name:
             # the version is None for broken metadata, str keeps the sort
             packages.add((str(name), str(distribution.version)))
