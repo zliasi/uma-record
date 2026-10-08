@@ -1,6 +1,6 @@
 WARNING:root:The 'seed' argument is deprecated and will be removed in future versions. Please set the seed in the MLIPPredictUnit configuration instead.
 WARNING:root:Model is being compiled this might take a while for the first time
-W1008 15:58:12.527000 2846234 /lustre/hpc/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/torch/_logging/_internal.py:1345] [0/0] Profiler record function <class 'torch.autograd.profiler.record_function'> will be ignored
+W1008 17:09:27.261000 2846675 /lustre/hpc/kemi/liasi/software/build/miniconda3/envs/cheac/lib/python3.13/site-packages/torch/_logging/_internal.py:1345] [0/0] Profiler record function <class 'torch.autograd.profiler.record_function'> will be ignored
 WARNING:root:The UMA fast path (merge_mole + compile) is only available for fixed composition, task, charge, and spin. This is optimized for MD applications. Falling back to a less optimized version for subsequent evaluations. Reason: 'Compositions differ from merged model'.
 Use inference_settings='batch' for heterogeneous batched evaluations.
 /lustre/hpc/kemi/liasi/projects/uma-record/examples/single-point/output/gpu/slab.uma.txt: Cu12, -35.974361 eV

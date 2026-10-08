@@ -455,7 +455,7 @@ def test_dynamics_are_recorded(tmp_path: Path, calc: FAIRChemCalculator) -> None
     optimizer.run(fmax=1e-6, steps=2)
 
     fields = read_fields(
-        write_record(atoms, dyn=optimizer, filename=tmp_path / "slab.uma.txt")
+        write_record(atoms, optimizer, filename=tmp_path / "slab.uma.txt")
     )
 
     dynamics = fields["Dynamics"]
@@ -471,7 +471,7 @@ def test_dyn_given_a_path_is_rejected(tmp_path: Path, calc: FAIRChemCalculator) 
     record = tmp_path / "slab.uma.txt"
 
     with pytest.raises(TypeError, match="filename="):
-        write_record(make_slab(calc), dyn=record)
+        write_record(make_slab(calc), record)
     assert not record.exists()
 
 
@@ -506,7 +506,7 @@ def test_molecular_dynamics_are_recorded(
     dyn = VelocityVerlet(atoms, timestep=1.0 * units.fs, logfile=None)
     dyn.run(2)
 
-    fields = read_fields(write_record(atoms, dyn=dyn, filename=tmp_path / "md.uma.txt"))
+    fields = read_fields(write_record(atoms, dyn, filename=tmp_path / "md.uma.txt"))
 
     assert fields["Dynamics"]["md-type"] == "VelocityVerlet"
     assert fields["Dynamics"]["nsteps"] == "2"
@@ -527,7 +527,7 @@ def test_thermostat_settings_are_recorded_when_ase_reports_them(
     )
     dyn.run(2)
 
-    fields = read_fields(write_record(atoms, dyn=dyn, filename=tmp_path / "md.uma.txt"))
+    fields = read_fields(write_record(atoms, dyn, filename=tmp_path / "md.uma.txt"))
 
     assert fields["Dynamics"]["md-type"] == "Langevin"
     assert float(fields["Dynamics"]["temperature_K"]) == pytest.approx(300.0)
@@ -904,7 +904,7 @@ def test_fields_are_read_by_section(tmp_path: Path, calc: FAIRChemCalculator) ->
     atoms = make_slab(calc)
     optimizer = BFGS(atoms, logfile=None)
     optimizer.run(fmax=1e-6, steps=1)
-    record = write_record(atoms, dyn=optimizer, filename=tmp_path / "slab.uma.txt")
+    record = write_record(atoms, optimizer, filename=tmp_path / "slab.uma.txt")
 
     fields = read_fields(record)
 

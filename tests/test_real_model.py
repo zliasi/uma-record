@@ -153,7 +153,7 @@ def test_band_with_a_shared_calculator_records_each_image(
     opt.run(fmax=5.0, steps=1)
 
     records = [
-        write_record(image, dyn=opt, filename=tmp_path / f"image-{number}.uma.txt")
+        write_record(image, opt, filename=tmp_path / f"image-{number}.uma.txt")
         for number, image in enumerate(images[1:-1], start=1)
     ]
 

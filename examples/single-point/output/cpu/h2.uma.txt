@@ -8,15 +8,15 @@ Run
   node:                      node024.cluster
   os:                        Linux-5.14.0-687.17.1.el9_8.x86_64-x86_64-with-glibc2.34
   working directory:         /lustre/hpc/kemi/liasi/projects/uma-record/examples/single-point
-  job id:                    65910684
+  job id:                    65912248
   job name:                  uma-record-single-point-cpu
   partition:                 katla_short
   cpus:                      1
   memory / MB:               8589.9
-  process started:           2026-10-08T15:57:49+02:00
-  written:                   2026-10-08T15:59:08+02:00
-  process elapsed:           0 days 0 hours 1 minutes 18.9 seconds
-  peak process memory / MB:  5645.2
+  process started:           2026-10-08T17:08:53+02:00
+  written:                   2026-10-08T17:10:31+02:00
+  process elapsed:           0 days 0 hours 1 minutes 38.3 seconds
+  peak process memory / MB:  5792.6
 
 Calculator
   calculator:               FAIRChemCalculator

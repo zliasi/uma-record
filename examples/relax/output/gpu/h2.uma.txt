@@ -3,20 +3,20 @@ UMA calculation record (uma-record v0.1.0)
 Run
   command:                   run.py --device cuda --checkpoint /groups/kemi/liasi/share/cheac/checkpoints/uma/uma-s-1p2p1.pt
   script:                    /lustre/hpc/kemi/liasi/projects/uma-record/examples/relax/run.py
-  script sha256:             ff411125480609663747b33490e2a443139d145c84bacf342635ab82e9073503
+  script sha256:             cbe509b2c98b17b4579c0ef5acf3bc6f04d5f7dbda4904b18f33075c2d65c072
   user:                      liasi
   node:                      node509.cluster
   os:                        Linux-5.14.0-687.17.1.el9_8.x86_64-x86_64-with-glibc2.34
   working directory:         /lustre/hpc/kemi/liasi/projects/uma-record/examples/relax
-  job id:                    65910687
+  job id:                    65912247
   job name:                  uma-record-relax-gpu
   partition:                 katla_l40s
   cpus:                      4
   memory / MB:               17179.9
-  process started:           2026-10-08T15:58:50+02:00
-  written:                   2026-10-08T15:59:22+02:00
-  process elapsed:           0 days 0 hours 0 minutes 32.2 seconds
-  peak process memory / MB:  6629.5
+  process started:           2026-10-08T17:09:01+02:00
+  written:                   2026-10-08T17:10:03+02:00
+  process elapsed:           0 days 0 hours 1 minutes 2.2 seconds
+  peak process memory / MB:  6673.7
 
 Calculator
   calculator:               FAIRChemCalculator

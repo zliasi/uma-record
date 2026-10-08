@@ -30,7 +30,9 @@ Tested with Python 3.13, fairchem-core 2.22.0, ASE 3.29.0, torch 2.13.0.
 
 ## Usage
 
-Set up the calculator as usual and call `write_record` after the calculation.
+Set up the calculator as usual and call `write_record` after the calculation,
+with the structure and the optimizer or molecular dynamics object that
+produced it.
 
 ```python
 from ase.optimize import LBFGS
@@ -44,20 +46,26 @@ atoms.calc = FAIRChemCalculator.from_model_checkpoint(
 opt = LBFGS(atoms)
 opt.run(fmax=0.05)
 
-write_record(atoms, dyn=opt)
+write_record(atoms, opt)
 ```
 
-For a single point, `write_record(atoms)`. Call it once per structure, right
-after that structure is done. Everything after `atoms` is a keyword.
+A single point has no optimizer, there the call is `write_record(atoms)`.
+Call it once per structure, right after that structure is done.
 
 ```
 atoms        the structure, with the FAIRChemCalculator attached
-dyn          optional, the ASE optimizer or molecular dynamics object
-filename     optional, where to write (default: UMA_RECORD_PATH, then
+dyn          the ASE optimizer or molecular dynamics object, left out for
+             a single point
+```
+
+The options are keywords:
+
+```
+filename     where to write (default: UMA_RECORD_PATH, then
              <formula>-<timestamp>.uma.txt in the working directory)
-checkpoint   optional, the checkpoint file, for a calculator that cannot
-             report its own
-packages     optional, True adds every installed package with its version
+checkpoint   the checkpoint file, for a calculator that cannot report
+             its own
+packages     True adds every installed package with its version
 ```
 
 A file named by `filename` is replaced. A job script can set the path once

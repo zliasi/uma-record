@@ -89,7 +89,7 @@ def main() -> None:
         atoms.calc = calc
         opt = LBFGS(atoms, logfile=None)
         opt.run(fmax=FMAX, steps=STEPS)
-        record = write_record(atoms, dyn=opt, filename=outdir / f"{name}.uma.txt")
+        record = write_record(atoms, opt, filename=outdir / f"{name}.uma.txt")
 
         recorded = read(record)
         print(f"{record}: {recorded.get_chemical_formula()}, {opt.nsteps} steps")

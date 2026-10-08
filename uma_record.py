@@ -228,8 +228,8 @@ _BIBTEX: Final = {
 
 def write_record(
     atoms: Atoms,
-    *,
     dyn: object | None = None,
+    *,
     filename: str | os.PathLike[str] | None = None,
     checkpoint: str | os.PathLike[str] | None = None,
     packages: bool = False,
@@ -239,7 +239,8 @@ def write_record(
 
     'atoms' must carry a 'FAIRChemCalculator', directly or inside a wrapper.
     'dyn' is the ASE optimizer or molecular dynamics object that produced the
-    structure. 'filename' defaults to the 'UMA_RECORD_PATH' environment variable,
+    structure, left out for a single point. The rest are keywords. 'filename'
+    defaults to the 'UMA_RECORD_PATH' environment variable,
     then to '<formula>-<timestamp>.uma.txt' in the working directory. A file
     named by 'filename' is replaced, a file named by the variable is kept and
     the new record gets the time stamp before its suffix. 'checkpoint' is only
@@ -263,7 +264,7 @@ def write_record(
     if not isinstance(atoms, Atoms):
         raise TypeError(f"atoms must be an ase.Atoms, got {type(atoms).__name__}")
     if isinstance(dyn, (str, bytes, os.PathLike)):
-        # the mistake of the earlier positional signature, a filename as dyn
+        # the second argument is the optimizer, a path there is a mistake
         raise TypeError(
             f"dyn must be an ASE optimizer or molecular dynamics object, got "
             f"{type(dyn).__name__}, pass the record path as filename="
